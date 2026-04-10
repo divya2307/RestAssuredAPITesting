@@ -1,107 +1,131 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.testautomation.apitesting</groupId>
-  <artifactId>RestAssuredAPITesting</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>Rest Assured API Testing Tutorial</name>
-  <description>Rest Assured API Testing Tutorial</description>
-  
-     <properties>
-        <!-- CRITICAL: Force Java 11 for everything -->
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.testautomation.apitesting</groupId>
+    <artifactId>RestAssuredAPITesting</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>Rest Assured API Testing Tutorial</name>
+    <description>Rest Assured API Testing Tutorial</description>
+
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        
-        <!-- Versions that play nice together on Java 11 -->
-        <cucumber.version>7.15.0</cucumber.version>
-      
+        <cucumber.version>7.20.1</cucumber.version>
+        <selenium.version>4.27.0</selenium.version>
+        <extentreports.version>5.1.2</extentreports.version>
     </properties>
- 
-  <dependencies>
-  	<dependency>
-		  <groupId>io.rest-assured</groupId>
-		  <artifactId>rest-assured</artifactId>
-		  <version>5.3.0</version>  
-	</dependency>
-	
-	<!-- Source: https://mvnrepository.com/artifact/com.jayway.jsonpath/json-path -->
-	<dependency>
-	    <groupId>com.jayway.jsonpath</groupId>
-	    <artifactId>json-path</artifactId>
-	    <version>2.9.0</version>
-	    <scope>compile</scope>
-	</dependency>
-	
-	<!-- Source: https://mvnrepository.com/artifact/org.testng/testng -->
-		<dependency>
-		    <groupId>org.testng</groupId>
-		    <artifactId>testng</artifactId>
-		    <version>7.7.0</version>
-		</dependency>
 
-		<!-- Source: https://mvnrepository.com/artifact/org.hamcrest/hamcrest -->
-		<dependency>
-		    <groupId>org.hamcrest</groupId>
-		    <artifactId>hamcrest</artifactId>
-		    <version>2.2</version>   
-		</dependency>
-		
-		<!-- Source: https://mvnrepository.com/artifact/tools.jackson.core/jackson-databind -->
-		<!-- This dependency is for json parsing, jackson. ANother one is GSON-->
-		<dependency>
-		    <groupId>com.fasterxml.jackson.core</groupId>
-		    <artifactId>jackson-databind</artifactId>
-		    <version>2.18.2</version> <!-- Current stable 2.x version -->
-		</dependency>
-			
-		<!-- Source: https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
-		<!-- Source: https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
-		<dependency>
-		    <groupId>io.cucumber</groupId>
-		    <artifactId>cucumber-java</artifactId>
-		    <version>7.15.0</version>
-		</dependency>
-		
+    <dependencies>
+        <!-- ===== SELENIUM ===== -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
 
-		<dependency>
-		    <groupId>io.cucumber</groupId>
-		    <artifactId>cucumber-junit</artifactId>
-		    <version>7.15.0</version>
-		</dependency>
-		
-		<dependency>
-	        <groupId>junit</groupId>
-	        <artifactId>junit</artifactId>
-	        <version>4.13.2</version>
-	    </dependency>
-	
-   <!-- Source: https://mvnrepository.com/artifact/org.apache.groovy/groovy-all -->
-		<dependency>
-		    <groupId>org.apache.groovy</groupId>
-		    <artifactId>groovy-all</artifactId>
-		    <version>4.0.21</version>
-		    <type>pom</type>
-		</dependency>
+        <!-- Auto manages chromedriver/geckodriver etc -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.9.2</version>
+        </dependency>
 
-  </dependencies>
-  
-  <build>
-    <plugins>
-      <!-- Explicit surefire config to force JUnit 4 provider -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.22.2</version> <!-- Last version with native JUnit 4 support -->
-        <dependencies>
-          <dependency>
-            <groupId>org.apache.maven.surefire</groupId>
-            <artifactId>surefire-junit4</artifactId>
-            <version>2.22.2</version>
-          </dependency>
-        </dependencies>
-      </plugin>
-      
-       <plugin>
+        <!-- ===== CUCUMBER ===== -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+
+        <!-- ===== JUNIT 4 (test runner) ===== -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- ===== TESTNG (assertions only) ===== -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.9.0</version>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>junit</groupId>
+                    <artifactId>junit</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- ===== EXTENT REPORTS ===== -->
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>${extentreports.version}</version>
+        </dependency>
+
+        <!-- ===== REST ASSURED ===== -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>5.5.0</version>
+        </dependency>
+
+        <!-- ===== JSON ===== -->
+        <dependency>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path</artifactId>
+            <version>2.9.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.18.2</version>
+        </dependency>
+
+        <!-- ===== HAMCREST ===== -->
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest</artifactId>
+            <version>2.2</version>
+        </dependency>
+
+        <!-- ===== GROOVY (for REST Assured DSL) ===== -->
+        <dependency>
+            <groupId>org.apache.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>4.0.21</version>
+            <type>pom</type>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Surefire - JUnit 4 runner -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.surefire</groupId>
+                        <artifactId>surefire-junit4</artifactId>
+                        <version>3.2.5</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+            <!-- Cucumber HTML Reports -->
+            <plugin>
                 <groupId>net.masterthought</groupId>
                 <artifactId>maven-cucumber-reporting</artifactId>
                 <version>5.7.0</version>
@@ -113,31 +137,20 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <projectName>cucumber-jvm-example</projectName>
-                            <!-- optional, per documentation set this to "true" to bypass generation of Cucumber Reports entirely, defaults to false if not specified -->
+                            <projectName>RestAssuredAPITesting</projectName>
                             <skip>false</skip>
-                            <!-- output directory for the generated report -->
                             <outputDirectory>${project.build.directory}</outputDirectory>
-                            <!-- optional, defaults to outputDirectory if not specified -->
                             <inputDirectory>${project.build.directory}/jsonReports</inputDirectory>
                             <jsonFiles>
-                                <!-- supports wildcard or name pattern -->
                                 <param>**/*.json</param>
                             </jsonFiles>
-                            <!-- optional, defaults to outputDirectory if not specified -->
-                            <classificationDirectory>${project.build.directory}/classifications</classificationDirectory>
-                         
-                            <!-- optional, set true to group features by its Ids -->
                             <mergeFeaturesById>false</mergeFeaturesById>
-                            <!-- optional, set true to get a final report with latest results of the same test from different test runs -->
                             <mergeFeaturesWithRetest>false</mergeFeaturesWithRetest>
-                            <!-- optional, set true to fail build on test failures -->
                             <checkBuildResult>false</checkBuildResult>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
-      
-    </plugins>
-  </build>
+        </plugins>
+    </build>
 </project>

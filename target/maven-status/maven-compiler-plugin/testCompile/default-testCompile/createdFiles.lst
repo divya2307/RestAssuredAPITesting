@@ -7,6 +7,7 @@ com/googlemaps/rshet/apitests/GETAPITest.class
 com/testautomation/apitesting/tests/PostAPIRequest.class
 com/testautomation/apitesting/tests/GetAPIRequest.class
 serializationUsingPOJO/GoogleMapAddPlacePOJO.class
+graphQLTest/QueryAndMutation.class
 cucumberStepDefinition/placeValidationStepDefinition.class
 cucumberStepDefinition/Hooks.class
 com/googlemaps/rshet/apitests/POSTAPITest.class

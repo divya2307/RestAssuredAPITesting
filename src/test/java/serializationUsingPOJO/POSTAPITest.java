@@ -1,6 +1,9 @@
 package serializationUsingPOJO;
 
+
 import org.testng.annotations.Test;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
@@ -50,6 +53,7 @@ public class POSTAPITest {
 	  
 	  ResponseSpecification responseSpecification = new ResponseSpecBuilder().expectStatusCode(200).expectHeader("Server", "Apache/2.4.52 (Ubuntu)") .build();
 	
+	
 	  
 	 RequestSpecification req =	given().spec(requestSpecification); // here we can seperate the given when then
 	   
@@ -58,6 +62,7 @@ public class POSTAPITest {
 	  	.body(map)
 	  	.post("maps/api/place/add/json")
 	  .then().spec(responseSpecification)
+	 
 	  	.log().all()
 	  	.extract().response().asPrettyString();
 	 

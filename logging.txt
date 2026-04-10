@@ -27,7 +27,7 @@ Body:
     "language": "www.costco.com"
 }
 HTTP/1.1 200 OK
-Date: Wed, 25 Mar 2026 08:07:05 GMT
+Date: Fri, 10 Apr 2026 19:20:13 GMT
 Server: Apache/2.4.52 (Ubuntu)
 Strict-Transport-Security: max-age=604800; includeSubDomains
 Access-Control-Allow-Origin: *
@@ -41,17 +41,17 @@ Content-Type: application/json;charset=UTF-8
 
 {
     "status": "OK",
-    "place_id": "83c07c9aab1103f6b3517e20bbf336f1",
+    "place_id": "98939899b0c53ef9ebf5129877dd50ab",
     "scope": "APP",
-    "reference": "98f2bf1a82a7e30cc2443d0fc2f0fbd798f2bf1a82a7e30cc2443d0fc2f0fbd7",
-    "id": "98f2bf1a82a7e30cc2443d0fc2f0fbd7"
+    "reference": "638e3e86eacfd8bc6bdac189cc5996e9638e3e86eacfd8bc6bdac189cc5996e9",
+    "id": "638e3e86eacfd8bc6bdac189cc5996e9"
 }
 Request method:	GET
-Request URI:	https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=83c07c9aab1103f6b3517e20bbf336f1
+Request URI:	https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=98939899b0c53ef9ebf5129877dd50ab
 Proxy:			<none>
 Request params:	<none>
 Query params:	key=qaclick123
-				place_id=83c07c9aab1103f6b3517e20bbf336f1
+				place_id=98939899b0c53ef9ebf5129877dd50ab
 Form params:	<none>
 Path params:	<none>
 Headers:		Accept=*/*
@@ -60,7 +60,7 @@ Cookies:		<none>
 Multiparts:		<none>
 Body:			<none>
 HTTP/1.1 200 OK
-Date: Wed, 25 Mar 2026 08:07:07 GMT
+Date: Fri, 10 Apr 2026 19:20:14 GMT
 Server: Apache/2.4.52 (Ubuntu)
 Strict-Transport-Security: max-age=604800; includeSubDomains
 Access-Control-Allow-Origin: *
@@ -84,4 +84,122 @@ Content-Type: application/json;charset=UTF-8
     "types": "Shopping Mart,Super Market",
     "website": "English",
     "language": "www.costco.com"
+}
+Request method:	POST
+Request URI:	https://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123
+Proxy:			<none>
+Request params:	<none>
+Query params:	key=qaclick123
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "location": {
+        "lat": -78.376784,
+        "lng": 76.875468
+    },
+    "accuracy": 10,
+    "name": "Home",
+    "phone_number": "7896542341",
+    "address": "Ponda",
+    "types": [
+        "Shopping Mart",
+        "Super Market"
+    ],
+    "website": "Konkani",
+    "language": "www.home.com"
+}
+HTTP/1.1 200 OK
+Date: Fri, 10 Apr 2026 19:20:18 GMT
+Server: Apache/2.4.52 (Ubuntu)
+Strict-Transport-Security: max-age=604800; includeSubDomains
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
+Content-Length: 194
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+
+{
+    "status": "OK",
+    "place_id": "40af461554c23e55ae1dad79ea0fac6e",
+    "scope": "APP",
+    "reference": "3c9dc76647bc2dbfe2d656a262a9064e3c9dc76647bc2dbfe2d656a262a9064e",
+    "id": "3c9dc76647bc2dbfe2d656a262a9064e"
+}
+Request method:	GET
+Request URI:	https://rahulshettyacademy.com/maps/api/place/get/json?key=qaclick123&place_id=40af461554c23e55ae1dad79ea0fac6e
+Proxy:			<none>
+Request params:	<none>
+Query params:	key=qaclick123
+				place_id=40af461554c23e55ae1dad79ea0fac6e
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 200 OK
+Date: Fri, 10 Apr 2026 19:20:19 GMT
+Server: Apache/2.4.52 (Ubuntu)
+Strict-Transport-Security: max-age=604800; includeSubDomains
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
+Content-Length: 221
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+
+{
+    "location": {
+        "latitude": "-78.376784",
+        "longitude": "76.875468"
+    },
+    "accuracy": "10",
+    "name": "Home",
+    "phone_number": "7896542341",
+    "address": "Ponda",
+    "types": "Shopping Mart,Super Market",
+    "website": "Konkani",
+    "language": "www.home.com"
+}
+Request method:	DELETE
+Request URI:	https://rahulshettyacademy.com/maps/api/place/delete/json?key=qaclick123
+Proxy:			<none>
+Request params:	<none>
+Query params:	key=qaclick123
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "place_id": "40af461554c23e55ae1dad79ea0fac6e"
+}
+HTTP/1.1 200 OK
+Date: Fri, 10 Apr 2026 19:20:23 GMT
+Server: Apache/2.4.52 (Ubuntu)
+Strict-Transport-Security: max-age=604800; includeSubDomains
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: POST
+Access-Control-Max-Age: 3600
+Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
+Content-Length: 15
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: application/json;charset=UTF-8
+
+{
+    "status": "OK"
 }
