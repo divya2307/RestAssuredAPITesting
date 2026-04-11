@@ -27,25 +27,14 @@ pipeline {
                 sh 'mvn test'
             }
         }
-        
-        stage('Reports') {
-            steps {
-                echo 'Publishing reports...'
-                publishHTML([
-                    reportDir: 'target/cucumber-report.html',
-                    reportFiles: 'index.html',
-                    reportName: 'Cucumber Report'
-                ])
-            }
-        }
     }
     
     post {
         success {
-            echo '✅ Build Successful!'
+            echo 'Build Successful!'
         }
         failure {
-            echo '❌ Build Failed!'
+            echo 'Build Failed!'
         }
         always {
             junit '**/target/surefire-reports/*.xml'
